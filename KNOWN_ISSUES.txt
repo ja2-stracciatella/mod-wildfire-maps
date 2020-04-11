@@ -1,0 +1,5 @@
+Known issues:
+
+ - Sector I6 crashes the game. For now, this mod uses I6 from Vanilla.
+
+ - Some sectors gives garbage items, appearing as "SMALL NAME". This is because Wildfire introduced new items not in JA2 Vanilla 

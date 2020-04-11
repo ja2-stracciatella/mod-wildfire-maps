@@ -1,0 +1,3 @@
+[submodule "lib/ja2-open-toolset"]
+	path = lib/ja2-open-toolset
+	url = https://github.com/ja2-stracciatella/ja2-open-toolset.git

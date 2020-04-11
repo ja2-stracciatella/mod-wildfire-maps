@@ -1,0 +1,94 @@
+/*
+Defines the towns and their sectors.
+
+Fields:
+  - sectors:   List of sectors belonging to the town.
+  - townPoint: position of town names on the map. These are no longer PIXELS, but 10 * the X,Y position in SECTORS (fractions possible) to the X-CENTER of the town.
+  - isMilitiaTrainingAllowed: whether or not militia is allowed in town
+*/
+[
+	// OMERTA
+	{ 
+		"townId": 1,
+		"sectors": [ "A9", "A10" ],
+		"townPoint": { "x": 90, "y": 0 },
+		"isMilitiaTrainingAllowed": false
+	},
+	// DRASSEN
+	{ 
+		"townId": 2,
+		"sectors": [ "B13", "C13", "C14", "D13" ],
+		"townPoint": { "x": 125, "y": 40 },
+		"isMilitiaTrainingAllowed": true
+	},
+	// ALMA
+	{ 
+		"townId": 3,
+		"sectors": [ "H13", "H14", "I13", "I14" ],
+		"townPoint": { "x": 130, "y": 90 },
+		"isMilitiaTrainingAllowed": true
+	},
+	// GRUMM
+	{
+		"townId": 4,
+		"sectors": [ "F2", "G1", "G2", "H1", "H2" ],
+		"townPoint": { "x": 15, "y": 80 },
+		"isMilitiaTrainingAllowed": true
+	},
+	// TIXA
+	{
+		"townId": 5,
+		"sectors": [ "J9" ],
+		"townPoint": { "x": 85, "y": 100 },
+		"isMilitiaTrainingAllowed": false
+	},
+	// CAMBRIA
+	{
+		"townId": 6,
+		"sectors": [ "F8", "F9", "G8", "G9" ],
+		"townPoint": { "x": 95, "y": 70 },
+		"isMilitiaTrainingAllowed": true
+	},
+	// SAN_MONA
+	{
+		"townId": 7,
+		"sectors": [ "C5", "C6", "D4", "D5" ],
+		"townPoint": { "x": 45, "y": 40 },
+		"isMilitiaTrainingAllowed": false
+	},
+	// ESTONI
+	{
+		"townId": 8,
+		"sectors": [ "I6" ],
+		"townPoint": { "x": 55, "y": 90 },
+		"isMilitiaTrainingAllowed": false
+	},
+	// ORTA
+	{
+		"townId": 9,
+		"sectors": [ "K4" ],
+		"townPoint": { "x": 35, "y": 110 },
+		"isMilitiaTrainingAllowed": false
+	},
+	// BALIME
+	{
+		"townId": 10,
+		"sectors": [ "L11", "L12" ],
+		"townPoint": { "x": 110, "y": 120 },
+		"isMilitiaTrainingAllowed": true
+	},
+	// MEDUNA
+	{
+		"townId": 11,
+		"sectors": [ "N3", "N4", "N5", "O3", "O4", "P3" ],
+		"townPoint": { "x": 45, "y": 150 },
+		"isMilitiaTrainingAllowed": true
+	},
+	// CHITZENA
+	{ 
+		"townId": 12,
+		"sectors": [ "A1", "A2", "B1", "B2" ],
+		"townPoint": { "x": 15, "y": 20 },
+		"isMilitiaTrainingAllowed": true
+	}
+]
