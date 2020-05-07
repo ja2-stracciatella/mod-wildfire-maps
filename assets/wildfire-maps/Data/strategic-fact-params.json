@@ -1,0 +1,10 @@
+[
+    {
+        "fact": 85,      // FACT_HANS_AT_SPOT
+        "gridNo": 12082
+    },
+    {
+        "fact": 113,     // FACT_SPIKE_AT_DOOR
+        "gridNo": 11746
+    }
+]

@@ -1,0 +1,59 @@
+[
+    {
+        "actionCode": 100, // NPC_ACTION_GOTO_HIDEOUT
+        "gridNo": 7887
+    },
+    {
+        "actionCode": 113, // NPC_ACTION_SEND_PACOS_INTO_HIDING
+        "gridNo": 16028
+    },
+    {
+        "actionCode": 114, // NPC_ACTION_HAVE_PACOS_FOLLOW
+        "gridNo": 18193
+    },
+    {
+        "actionCode": 118, // NPC_ACTION_CHOOSE_DOCTOR
+        "gridNo": 10343 // TODO: update with WF value
+    },
+    {
+        "actionCode": 123, // NPC_ACTION_KYLE_GETS_MONEY
+        "gridNo": 7595,
+        "amount": 8000
+    },
+    {
+        "actionCode": 129, // NPC_ACTION_OPEN_CARLAS_DOOR
+        "gridNo": 13567
+    },
+    {
+        "actionCode": 130, // NPC_ACTION_OPEN_CINDYS_DOOR
+        "gridNo": 11803
+    },
+    {
+        "actionCode": 131, // NPC_ACTION_OPEN_BAMBIS_DOOR
+        "gridNo": 10847
+    },
+    {
+        "actionCode": 132, // NPC_ACTION_OPEN_MARIAS_DOOR
+        "gridNo": 10523
+    },
+    {
+        "actionCode": 147, // NPC_ACTION_ANGEL_LEAVES_DEED
+        "gridNo": 11100
+    },
+    {
+        "actionCode": 157, // NPC_ACTION_CARMEN_LEAVES_FOR_C13
+        "amount": 10000
+    },
+    {
+        "actionCode": 195, // NPC_ACTION_WALTER_GIVEN_MONEY_INITIALLY
+        "amount": 2000
+    },
+    {
+        "actionCode": 196, // NPC_ACTION_WALTER_GIVEN_MONEY
+        "amount": 2000
+    },
+    {
+        "actionCode": 210, // NPC_ACTION_CHANGE_MANNY_POSITION
+        "gridNo": 19904  // TODO: update with WF value
+    }
+]

@@ -1,11 +1,3 @@
-/*
-Defines the towns and their sectors.
-
-Fields:
-  - sectors:   List of sectors belonging to the town.
-  - townPoint: position of town names on the map. These are no longer PIXELS, but 10 * the X,Y position in SECTORS (fractions possible) to the X-CENTER of the town.
-  - isMilitiaTrainingAllowed: whether or not militia is allowed in town
-*/
 [
 	// OMERTA
 	{ 

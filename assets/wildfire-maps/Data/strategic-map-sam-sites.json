@@ -1,0 +1,18 @@
+[
+    {   // SAM_SITE_ONE
+        "sector": "D2",
+        "gridNos": [ 10196, 10195 ]  // TODO:
+    },
+    {   // SAM_SITE_TWO
+        "sector": "D15",
+        "gridNos": [ 16225, 16065 ]
+    },
+    {   // SAM_SITE_THREE
+        "sector": "I8",
+        "gridNos": [ 16080, 15920 ]  // TODO:
+    },
+    {   // SAM_SITE_FOUR
+        "sector": "N4",
+        "gridNos": [ 11913, 11912 ]  // TODO:
+    }
+]

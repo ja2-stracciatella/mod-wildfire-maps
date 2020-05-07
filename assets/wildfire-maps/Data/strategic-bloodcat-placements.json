@@ -1,7 +1,3 @@
-// Externalized table of bloodcat populations.  We don't have
-// access to the real population (if different) until we physically
-// load the map.  If the real population is different, then an error
-// will be reported.
 [
 	{ "sector":"A15", "bloodCatPlacements":9 },
 	{ "sector":"B4",  "bloodCatPlacements":9 },
