@@ -1,11 +1,11 @@
 ## What is this about?
 
-This is a modpack for JA2 Stracciatella, which lets you play on Wildfire maps with vanilla gameplay.
+This is a modpack for JA2 Stracciatella, which lets you play on Wildfire maps with vanilla gameplay. You need to own both vanilla JA2 and JA2 Wildfire.
 
 
 ## What is this not?
 
-Wildfire also introduced new mercs, new weapons, new up-sized interface, new sound FX, etc. None of those are included in this mod.
+It only include the maps. Everything else such as the new mercs, new weapons, new up-sized interface, new sound FX, are not included.
 
 
 ## How do I install the mod?
@@ -14,17 +14,11 @@ Wildfire also introduced new mercs, new weapons, new up-sized interface, new sou
 
 2. Download a release package and extract it under the mods directory of Stracciatella
 
-3. Copy the below SLF files from Wildfire into the mod directory (mods/wildfire-maps/Data/)
-    - BinaryData.slf
-    - InterFace.slf
-    - Maps.slf
-    - NPCData.slf
-    - RadarMaps.slf
-    - TileSets.slf
+3. Run install_wildfire_maps. It should ask you for the source directory. Select the Wildfire data directory.
 
-4. Run install_wildfire_maps
+   Alteratively, use the command line arg --src_dir. See --help for available options.
 
-5. Run the JA2-Stracciatella launcher. In the "Data" tab, add "wildfire-maps" to the enabled mods
+4. Run the JA2-Stracciatella launcher. In the "Data" tab, add "wildfire-maps" to the enabled mods
 
 
 ## What else do I need to know?
