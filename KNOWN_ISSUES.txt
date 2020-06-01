@@ -1,5 +1,12 @@
-Known issues:
+# Known issues
 
- - Sector I6 crashes the game. For now, this mod uses I6 from Vanilla.
+## Gameplay differences
 
- - Some sectors gives garbage items, appearing as "SMALL NAME". This is because Wildfire introduced new items not in JA2 Vanilla 
+- Unlike in Wildfire, civilians are indifferent even if you rob them
+- Some civilians outside of San Mona are in Kingpin's faction. For example, some civilians in Drassen may attack if Kingpin has turned hostile.
+
+## Issues due to map differences
+
+- Departing Mercs leave equipment in an open tile
+- Equipment of captured mercs are placed in the open
+- Squad may get stuck, after using the "Travel to surface" function from deep underground. In that case, traverse out and back in the sector in stratigic map.

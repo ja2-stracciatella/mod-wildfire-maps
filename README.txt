@@ -7,6 +7,8 @@ This is a modpack for JA2 Stracciatella, which lets you play on Wildfire maps wi
 
 It only include the maps. Everything else such as the new mercs, new weapons, new up-sized interface, new sound FX, are not included.
 
+Be sure to read KNOWN_ISSUES.txt, for the list of things unsupported yet.
+
 
 ## How do I install the mod?
 
