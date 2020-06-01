@@ -7,10 +7,10 @@ directory to be clean.
 """
 
 import argparse
+import colorama
 import os
 import traceback
 import sys
-import colorama
 from colorama import Fore, Back, Style
 from fs.mountfs import MountFS
 from fs.osfs import OSFS
@@ -29,8 +29,11 @@ FILES_TO_EXTRACT = [
     ("BinaryData", "JA2set.dat"),
     ("InterFace", "MilitiaMaps.sti"),
     ("InterFace", "b_map.sti"),
-    ("NPCData", "093.npc"),
-    ("NPCData", "117.npc"),
+    ("NPCData", "069.npc"), # VINCE
+    ("NPCData", "080.npc"), # STEVE
+    ("NPCData", "093.npc"), # SPIKE
+    ("NPCData", "117.npc"), # HANS
+    ("NPCData", "132.npc"), # JENNY
 ]
 
 FILES_TO_EXCLUDE = [
@@ -44,9 +47,9 @@ FILES_TO_EXCLUDE = [
 
 is_verbose = False
 
-OK_LABEL    = Fore.GREEN + Style.BRIGHT + '[OK]' + Style.RESET_ALL
-WARN_LABEL  = Fore.YELLOW + Style.BRIGHT + '[WARN]' + Style.RESET_ALL
-ERROR_LABEL = Fore.RED + Style.BRIGHT + '[ERROR]' + Style.RESET_ALL
+OK_LABEL    = Fore.GREEN  + Style.BRIGHT + '[OK]'    + Style.RESET_ALL
+WARN_LABEL  = Fore.YELLOW + Style.BRIGHT + '[WARN]'  + Style.RESET_ALL
+ERROR_LABEL = Fore.RED    + Style.BRIGHT + '[ERROR]' + Style.RESET_ALL
 
 def main():
     global is_verbose
