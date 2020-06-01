@@ -1,0 +1,313 @@
+[
+    {
+        //Miguel's basement.  Nothing here.
+        "sector": "A10",
+        "sectorLevel": 1
+    },
+    {
+        //Chitzena mine.  Nothing here.
+        "sector": "B2",
+        "sectorLevel": 1
+    },
+    {
+        //San Mona mine.  Nothing here.
+        "sector": "D4",
+        "sectorLevel": 1
+    },
+    {
+        "sector": "D5",
+        "sectorLevel": 1
+    },
+    //Tixa
+    {
+        "sector": "J9",
+        "sectorLevel": 1,
+        "numTroops": [8, 11, 15]
+    },
+    //J9 feeding zone
+    {
+        "sector": "J9",
+        "sectorLevel": 2,
+        "numCreatures": [4, 6, 8],
+        "numCreaturesVariance": [2, 2, 2]
+    },
+    //Orta, K4
+    {
+        "sector": "K4",
+        "sectorLevel": 1,
+        "numTroops": [8, 10, 12],
+        "numTroopsVariance": [3, 3, 3],
+        "numElites": [5, 6, 7],
+        "numElitesVariance": [2, 2, 2]
+    },
+    // Meduna
+    //O3
+    {
+        "sector": "O3",
+        "sectorLevel": 1,
+        "adjacentSectors": ["S"],
+        "numTroops": [8, 10, 12],
+        "numTroopsVariance": [3, 3, 3],
+        "numElites": [5, 6, 7],
+        "numElitesVariance": [2, 2, 2]
+    },
+    //P3
+    {
+        "sector": "P3",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N"],
+        "numElites": [8, 10, 14],
+        "numElitesVariance": [3, 5, 6]
+    },
+    //Drassen's mine:
+    //D13_B1
+    {
+        "sector": "D13",
+        "sectorLevel": 1,
+        "adjacentSectors": ["S"]
+    },
+    //E13_B1
+    {
+        "sector": "E13",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N"]
+    },
+    //E13_B2
+    {
+        "sector": "E13",
+        "sectorLevel": 2,
+        "adjacentSectors": ["S"]
+    },
+    //F13_B2
+    {
+        "sector": "F13",
+        "sectorLevel": 2,
+        "adjacentSectors": ["N", "S"]
+    },
+    //G13_B2
+    {
+        "sector": "G13",
+        "sectorLevel": 2,
+        "adjacentSectors": ["N"]
+    },
+    //G13_B3
+    {
+        "sector": "G13",
+        "sectorLevel": 3,
+        "adjacentSectors": ["N"]
+    },
+    //F13_B3
+    {
+        "sector": "F13",
+        "sectorLevel": 3,
+        "adjacentSectors": ["S"]
+    },
+    //Cambria's mine
+    //H8_B1
+    {
+        "sector": "H8",
+        "sectorLevel": 1,
+        "adjacentSectors": ["E"]
+    },
+    //H9_B1
+    {
+        "sector": "H9",
+        "sectorLevel": 1,
+        "adjacentSectors": ["W"]
+    },
+    //H9_B2
+    {
+        "sector": "H9",
+        "sectorLevel": 2,
+        "adjacentSectors": ["W"]
+    },
+    //H8_B2
+    {
+        "sector": "H8",
+        "sectorLevel": 2,
+        "adjacentSectors": ["E"]
+    },
+    //H8_B3
+    {
+        "sector": "H8",
+        "sectorLevel": 3,
+        "adjacentSectors": ["S"]
+    },
+    //I8_B3
+    {
+        "sector": "I8",
+        "sectorLevel": 3,
+        "adjacentSectors": ["N","S"]
+    },
+    //J8_B3
+    {
+        "sector": "J8",
+        "sectorLevel": 3,
+        "adjacentSectors": ["N"]
+    },
+    //Alma's mine
+    //I14_B1
+    {
+        "sector": "I14",
+        "sectorLevel": 1,
+        "adjacentSectors": ["S"]
+    },
+    //J14_B1
+    {
+        "sector": "J14",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N"]
+    },
+    //J14_B2
+    {
+        "sector": "J14",
+        "sectorLevel": 2,
+        "adjacentSectors": ["W"]
+    },
+    //J13_B2
+    {
+        "sector": "J13",
+        "sectorLevel": 2,
+        "adjacentSectors": ["E"]
+    },
+    //J13_B3
+    {
+        "sector": "J13",
+        "sectorLevel": 3,
+        "adjacentSectors": ["S"]
+    },
+    //K13_B3
+    {
+        "sector": "K13",
+        "sectorLevel": 3,
+        "adjacentSectors": ["N"]
+    },
+    //Grumm's mine
+    //H3_B1
+    {
+        "sector": "H3",
+        "sectorLevel": 1,
+        "adjacentSectors": ["S"]
+    },
+    //I3_B1
+    {
+        "sector": "I3",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N"]
+    },
+    //I3_B2
+    {
+        "sector": "I3",
+        "sectorLevel": 2,
+        "adjacentSectors": ["N"]
+    },
+    //H3_B2
+    {
+        "sector": "H3",
+        "sectorLevel": 2,
+        "adjacentSectors": ["S","E"]
+    },
+    //H4_B2
+    {
+        "sector": "H4",
+        "sectorLevel": 2,
+        "adjacentSectors": ["W"]
+    },
+    //H4_B3
+    {
+        "sector": "H4",
+        "sectorLevel": 3,
+        "adjacentSectors": ["N"]
+    },
+    //G4_B3
+    {
+        "sector": "G4",
+        "sectorLevel": 3,
+        "adjacentSectors": ["S"]
+    },
+    /** Wildfire underground sector **/
+    // f8_b1.dat, Cambria Hospital basement
+    {
+        "sector": "F8",
+        "sectorLevel": 1
+    },
+    // Alma basement
+    // h13_b1.dat, 
+    {
+        "sector": "H13",
+        "sectorLevel": 1,
+        "adjacentSectors": ["S"],
+        "numTroops": [4, 6, 8],
+        "numTroopsVariance": [2, 2, 2],
+        "numElites": [1, 2, 3],
+        "numElitesVariance": [2, 2, 2]
+    },
+    // i13_b1.dat
+    {
+        "sector": "I13",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N"],
+        "numTroops": [2, 4, 6],
+        "numTroopsVariance": [2, 2, 2],
+        "numElites": [1, 2, 3],
+        "numElitesVariance": [0, 0, 0]
+    },
+    // Meduna
+    //m2_b1.dat,
+    {
+        "sector": "M2",
+        "sectorLevel": 1,
+        "adjacentSectors": ["E"]
+    },
+    //m3_b1.dat,
+    {
+        "sector": "M3",
+        "sectorLevel": 1,
+        "adjacentSectors": ["E", "W"],
+        "numTroops": [4, 6, 8],
+        "numTroopsVariance": [2, 3, 4],
+        "numElites": [0, 1, 1],
+        "numElitesVariance": [0, 0, 2]
+    },
+    //m4_b1.dat,
+    {
+        "sector": "M4",
+        "sectorLevel": 1,
+        "adjacentSectors": ["E", "S"],
+        "numTroops": [8, 10, 12],
+        "numTroopsVariance": [2, 2, 2],
+        "numElites": [1, 2, 3],
+        "numElitesVariance": [2, 2, 2]
+    },
+    //n4_b1.dat,
+    {
+        "sector": "N4",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N", "E", "S"],
+        "numTroops": [6, 8, 10],
+        "numTroopsVariance": [2, 2, 2],
+        "numElites": [1, 2, 3],
+        "numElitesVariance": [2, 2, 2]
+    },
+    //n5_b1.dat, 
+    {
+        "sector": "N5",
+        "sectorLevel": 1,
+        "adjacentSectors": ["W"],
+        "numTroops": [4, 6, 8],
+        "numTroopsVariance": [2, 2, 2],
+        "numElites": [2, 3, 4],
+        "numElitesVariance": [2, 2, 2]
+    },
+    //o4_b1.dat
+    {
+        "sector": "O4",
+        "sectorLevel": 1,
+        "adjacentSectors": ["N"],
+        "numTroops": [6, 8, 10],
+        "numTroopsVariance": [2, 2, 2],
+        "numElites": [3, 3, 3],
+        "numElitesVariance": [0, 0, 0]
+    }
+]
+

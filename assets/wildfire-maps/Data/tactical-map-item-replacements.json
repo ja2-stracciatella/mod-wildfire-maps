@@ -1,7 +1,7 @@
 [
 	{ "from": 66, "to": "M24" },             // VSS        => M24
 	{ "from": 67, "to": "DRAGUNOV" },        // V-94       => DRAGUNOV
-	{ "from": 68, "to": "G11" },             // F2000      => G11
+	{ "from": 68, "to": "C7" },              // F2000      => C7
 
 	{ "from": 265, "to": "SILENCER" },       // Silencer .45  => SILENCER
 	{ "from": 269, "to": "SILENCER" },       // Silencer P90  => SILENCER
