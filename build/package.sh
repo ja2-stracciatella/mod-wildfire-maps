@@ -18,7 +18,7 @@ rm    -rf $DIST_DIR/
 mkdir -p  $DIST_DIR/
 mv    $BASE_DIR/dist/install_wildfire_maps*            $DIST_DIR/
 cp -R $BASE_DIR/assets/wildfire-maps/*                 $DIST_DIR/
-cp    $BASE_DIR/README.txt $BASE_DIR/KNOWN_ISSUES.txt  $DIST_DIR/
+cp    $BASE_DIR/README.md $BASE_DIR/KNOWN_ISSUES.md    $DIST_DIR/
 
 pushd $BASE_DIR/dist
 if [ "$OS" = "windows" ]; then
