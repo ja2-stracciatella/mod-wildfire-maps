@@ -10,7 +10,8 @@ It only include the maps. Everything else such as the new mercs, new weapons,
 new up-sized interface, new sound FX, are not included.
 
 Be sure to read [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for the list of currently
-unsupported Wildfire features.
+unsupported Wildfire features. On the Stracciatella side, progress is tracked
+[here](https://github.com/ja2-stracciatella/ja2-stracciatella/issues/1095).
 
 
 ## How do I install the mod?
