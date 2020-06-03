@@ -8,7 +8,7 @@
 
 ## Issues due to map differences
 
-- Departing Mercs leave equipment in an open tile
-- Equipment of captured mercs are placed in the open
-- Squad may get stuck, after using the "Travel to surface" function from deep
+- Departing Mercs leave their equipment in an open tile
+- Equipment of captured mercs is placed in the open
+- Squad may get stuck after using the "Travel to surface" function from deep
   underground. In that case, traverse out and back in the sector in stratigic map.
