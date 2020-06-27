@@ -37,7 +37,6 @@ FILES_TO_EXTRACT = [
 ]
 
 FILES_TO_EXCLUDE = [
-    "Maps/i6.dat",
     "Tilesets/0/smguns.sti",
     "Tilesets/0/SMITEMS.STI",
     "Tilesets/0/smp1items.sti",
