@@ -10,5 +10,5 @@
 
 - Departing Mercs leave their equipment in an open tile
 - Equipment of captured mercs is placed in the open
-- Squad may get stuck after using the "Travel to surface" function from deep
-  underground. In that case, traverse out and back in the sector in stratigic map.
+- Some underground sectors are not drawn correctly on strategic map
+- Water fountain at Kingpin's mansion not drawn properly

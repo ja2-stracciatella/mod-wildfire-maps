@@ -1,0 +1,170 @@
+[
+    {
+        "associatedMineId": 1, // Drassen
+        "lairId": 1,
+        "sectors": [
+            [ "F13", 3, "QUEEN_LAIR" ],
+            [ "G13", 3, "LAIR" ],
+            [ "G13", 2, "LAIR_ENTRANCE" ],
+            [ "F13", 2, "INNER_MINE" ],
+            [ "E13", 2, "INNER_MINE" ],
+            [ "E13", 1, "OUTER_MINE" ],
+            [ "D13", 1, "MINE_EXIT" ]
+        ],
+        "entranceSector": [ "E13", 1 ],
+        "warpExit": {
+            "sector": "D13",
+            "gridNo": 17030
+        },
+        "attackSectors": [
+            {
+                "sector": "D13",
+                "chance": 45,
+                "insertionCode": "GRIDNO",
+                "insertionGridNo": 16864
+            },
+            {
+                "sector": "C13",
+                "chance": 25,
+                "insertionCode": "SOUTH"
+            },
+            {
+                "sector": "B13",
+                "chance": 30,
+                "insertionCode": "SOUTH"
+            }
+        ]
+    },
+    {
+        "lairId": 2,
+        "associatedMineId": 3, // Cambria
+        "sectors": [
+            [ "J8", 3, "QUEEN_LAIR" ],
+            [ "I8", 3, "LAIR" ],
+            [ "H8", 3, "LAIR" ],
+            [ "H8", 2, "LAIR_ENTRANCE" ],
+            [ "H9", 2, "INNER_MINE" ],
+            [ "H9", 1, "OUTER_MINE" ],
+            [ "H8", 1, "MINE_EXIT" ]
+        ],
+        "entranceSector": [ "H9", 1 ],
+        "warpExit": {
+            "sector": "H8",
+            "gridNo": 10505
+        },
+        "attackSectors": [
+            {
+                "sector": "H8",
+                "chance": 35,
+                "insertionCode": "GRIDNO",
+                "insertionGridNo": 9034
+            },
+            {
+                "sector": "G8",
+                "chance": 20,
+                "insertionCode": "SOUTH"
+            },
+            {
+                "sector": "F8",
+                "chance": 15,
+                "insertionCode": "SOUTH"
+            },
+            {
+                "sector": "G9",
+                "chance": 15,
+                "insertionCode": "WEST"
+            },
+            {
+                "sector": "F9",
+                "chance": 15,
+                "insertionCode": "SOUTH"
+            }
+        ]
+    },
+    {
+        "lairId": 3,
+        "associatedMineId": 2, // Alma
+        "sectors": [
+            [ "K13", 3, "QUEEN_LAIR" ],
+            [ "J13", 3, "LAIR" ],
+            [ "J13", 2, "LAIR_ENTRANCE" ],
+            [ "J14", 2, "INNER_MINE" ],
+            [ "J14", 1, "OUTER_MINE" ],
+            [ "I14", 1, "MINE_EXIT" ]
+        ],
+        "entranceSector": [ "J14", 1 ],
+        "warpExit": {
+            "sector": "I14",
+            "gridNo": 6315
+        },
+        "attackSectors": [
+            {
+                "sector": "I14",
+                "chance": 45,
+                "insertionCode": "GRIDNO",
+                "insertionGridNo": 6151
+            },
+            {
+                "sector": "I13",
+                "chance": 20,
+                "insertionCode": "EAST"
+            },
+            {
+                "sector": "H14",
+                "chance": 20,
+                "insertionCode": "SOUTH"
+            },
+            {
+                "sector": "H13",
+                "chance": 15,
+                "insertionCode": "EAST"
+            }
+        ]
+    },
+    {
+        "lairId": 4,
+        "associatedMineId": 5, // Grumm
+        "sectors": [
+            [ "G4", 3, "QUEEN_LAIR" ],
+            [ "H4", 3, "LAIR" ],
+            [ "H4", 2, "LAIR_ENTRANCE" ],
+            [ "H3", 2, "INNER_MINE" ],
+            [ "I3", 2, "INNER_MINE" ],
+            [ "I3", 1, "OUTER_MINE" ],
+            [ "H3", 1, "MINE_EXIT" ]
+        ],
+        "entranceSector": [ "H4", 2 ],
+        "warpExit": {
+            "sector": "H3",
+            "gridNo": 9846
+        },
+        "attackSectors": [
+            {
+                "sector": "H3",
+                "chance": 35,
+                "insertionCode": "GRIDNO",
+                "insertionGridNo": 9364
+            },
+            {
+                "sector": "H2",
+                "chance": 20,
+                "insertionCode": "EAST"
+            },
+            {
+                "sector": "G2",
+                "chance": 15,
+                "insertionCode": "SOUTH"
+            },
+            {
+                "sector": "H1",
+                "chance": 15,
+                "insertionCode": "EAST"
+            },
+            {
+                "sector": "G1",
+                "chance": 15,
+                "insertionCode": "SOUTH"
+            }
+        ]
+    }
+]
