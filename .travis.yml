@@ -9,6 +9,8 @@ jobs:
     os: osx
     osx_image: xcode11.2
     language: shell
+    before_install:
+    - pyenv install 3.8.2 && pyenv shell 3.8.2
   - name: Python 3.8 on Windows
     os: windows
     language: bash
