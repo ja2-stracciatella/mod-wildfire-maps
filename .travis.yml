@@ -5,12 +5,12 @@ jobs:
     python: 3.8
     before_install:
     - sudo apt-get -yq update &&  sudo apt-get -yq install upx
-  - name: Python 3.7.4 on macOS
+  - name: Python 3.8 on macOS
     os: osx
     osx_image: xcode11.2
     language: shell
     before_install:
-    - pyenv install 3.8.2 && pyenv shell 3.8.2
+    - pyenv install 3.8.2 && pyenv global system 3.8.2
   - name: Python 3.8 on Windows
     os: windows
     language: bash
