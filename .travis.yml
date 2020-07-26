@@ -11,6 +11,7 @@ jobs:
     language: shell
     before_install:
     - pyenv install 3.8.2 && pyenv global system 3.8.2
+    - echo 'eval "$(pyenv init -)"' >> ~/.bashrc
   - name: Python 3.8 on Windows
     os: windows
     language: bash
@@ -18,9 +19,9 @@ jobs:
     - choco install python --version=3.8.2
     - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
 install:
-- pip install -r build/requirements.txt
-- pip install pyinstaller
-- if [ "$TRAVIS_OS_NAME" = "windows" ]; then pip install pypiwin32 pefile; fi
+- pip3 install -r build/requirements.txt
+- pip3 install pyinstaller
+- if [ "$TRAVIS_OS_NAME" = "windows" ]; then pip3 install pypiwin32 pefile; fi
 script:
 - pushd build; ./package.sh; popd
 deploy:
