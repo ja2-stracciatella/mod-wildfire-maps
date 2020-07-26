@@ -9,6 +9,7 @@ DIST_DIR="$BASE_DIR/dist/wildfire-maps"
 
 # Create executable binary
 pyinstaller $BASE_DIR/src/install_wildfire_maps.py \
+    --hidden-import='pkg_resources.py2_warn' \
     --distpath $BASE_DIR/dist/ \
     --paths $BASE_DIR/lib/ja2-open-toolset \
     --onefile
