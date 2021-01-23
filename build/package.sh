@@ -1,8 +1,8 @@
 #!/bin/bash
 # This is packaging script assumes an environment like TravisCI.
 
-OS=${TRAVIS_OS_NAME-unknown}
-TAG=${TRAVIS_TAG-untagged}
+OS=${CI_OS_NAME-unknown}
+TAG=${CI_GIT_TAG-untagged}
 
 BASE_DIR="$(dirname "$BASH_SOURCE")/.."
 DIST_DIR="$BASE_DIR/dist/wildfire-maps"
