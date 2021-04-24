@@ -11,4 +11,5 @@
 - Departing Mercs leave their equipment in an open tile
 - Equipment of captured mercs is placed in the open
 - Some underground sectors are not drawn correctly on strategic map
+- New underground sectors do not have the correct sector names or loading screens
 - Water fountain at Kingpin's mansion not drawn properly
