@@ -1,5 +1,5 @@
 {
     "name": "Wildfire maps",
-    "description": "This mod adds support of Wildfire maps. To install, you need run the installer on a copy of Wildfire data files. This only cover map sectors and not the other Wildfire contents such as the new mercs or AI.",
+    "description": "This mod adds support of Wildfire maps. To install, you need run the installer on a copy of Wildfire data files. This mod only cover map sectors and not the other Wildfire contents such as the new mercs or AI.",
     "version": "0.3.1"
 }
