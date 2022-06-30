@@ -26,14 +26,14 @@ DIRS_TO_UNPACK = [
 ]
 
 FILES_TO_EXTRACT = [
-    ("BinaryData", "JA2set.dat"),
-    ("InterFace", "MilitiaMaps.sti"),
-    ("InterFace", "b_map.sti"),
-    ("NPCData", "069.npc"), # VINCE
-    ("NPCData", "080.npc"), # STEVE
-    ("NPCData", "093.npc"), # SPIKE
-    ("NPCData", "117.npc"), # HANS
-    ("NPCData", "132.npc"), # JENNY
+    "JA2set.dat",
+    "MilitiaMaps.sti",
+    "b_map.sti",
+    "069.npc", # VINCE
+    "080.npc", # STEVE
+    "093.npc", # SPIKE
+    "117.npc", # HANS
+    "132.npc", # JENNY
 ]
 
 FILES_TO_EXCLUDE = [
@@ -76,8 +76,8 @@ def main():
     for slf in DIRS_TO_UNPACK:
         unpack_slf(src_dir, work_dir, slf)
 
-    for slf, res in FILES_TO_EXTRACT:
-        extract_single_resource(src_dir, work_dir, slf, res)
+    for res in FILES_TO_EXTRACT:
+        extract_single_resource(src_dir, work_dir, res)
 
     for f in FILES_TO_EXCLUDE:
         delete_file(work_dir, f)
@@ -100,7 +100,7 @@ def determine_src_path(src_dir):
         from tkinter import Tk
         from tkinter.filedialog import askdirectory
         tk = Tk()
-        dir = askdirectory(title='Select Wildfare data folder', mustexist =True)
+        dir = askdirectory(title='Select Wildfire data folder', mustexist =True)
         tk.destroy()
         if dir:
             return Path(dir)
@@ -118,7 +118,7 @@ def preflight_checks(src_path, work_path):
     print("Using " + str(src_path.resolve()) + " as source directory.")
     print("Checking for data files...")
 
-    required_slf_files = DIRS_TO_UNPACK + list(map(lambda t: t[0], FILES_TO_EXTRACT))
+    required_slf_files = DIRS_TO_UNPACK
     required_slf_files = set(required_slf_files)
 
     if not (work_path).is_dir():
@@ -126,6 +126,7 @@ def preflight_checks(src_path, work_path):
 
     for slf in required_slf_files:
         file_name = slf + ".slf"
+        file_name = resolve_case_insensitive_path(src_path, file_name)
         if (src_path / file_name).is_file():
             print("  * %s %s exists" % (OK_LABEL, file_name))
         else:
@@ -152,12 +153,16 @@ def unpack_slf(src_path, work_path, slf_name):
 
 def delete_file(work_path, file_path):
     """We are only interested in maps, delete any other un-needed files."""
-    print("  * Deleting " + file_path)
+    file_path = resolve_case_insensitive_path(work_path, file_path)
+    print("  * Deleting " + str(file_path))
     (work_path / file_path).unlink()
 
 
-def extract_single_resource(src_path, work_path, slf_name, resource_path):
-    """Extracts a single resource file from the SLF"""
+def extract_single_resource(src_path, work_path, resource_path):
+    """Extracts a single resource file from any SLF in the source path"""
+    slf_name, resource_path = find_slf_that_contains_resource(src_path, resource_path)
+    if slf_name is None or resource_path is None:
+        raise RuntimeError("Could not find SLF file that contains " + resource_path)
     combined_fs = open_slf_for_copy(src_path, work_path, slf_name)
 
     print("  * Extracting " + slf_name + "/" + resource_path)
@@ -165,9 +170,20 @@ def extract_single_resource(src_path, work_path, slf_name, resource_path):
     combined_fs.close()
 
 
+def find_slf_that_contains_resource(src_path, resource_path):
+    """Finds the SLF that contains a resource_path and returns case sensitive slf file name and resource path"""
+    slf_files = [f for f in os.listdir(src_path) if os.path.isfile(src_path / f) and f.lower().endswith(".slf")]
+    for slf_filename in slf_files:
+        slf_fs = SlfFS(str(src_path / slf_filename))
+        for r in slf_fs.listdir("/"):
+            if r.lower() == resource_path.lower():
+                return slf_filename[:-4], r
+    return None, None
+
 def open_slf_for_copy(src_path, dest_path, slf_name):
     """Opens an SLF files for reading and returns a MountFS"""
-    slf_file = src_path / (slf_name + ".slf")
+    slf_filename = resolve_case_insensitive_path(src_path, slf_name + ".slf")
+    slf_file = src_path / slf_filename
     slf_fs = SlfFS(str(slf_file))
 
     output_dir = dest_path / slf_name
@@ -180,11 +196,12 @@ def open_slf_for_copy(src_path, dest_path, slf_name):
 
     return combined_fs
 
-
 def convert_bmap(work_path):
     """Converts the bmap.sti in Wildfire to bmap.pcx which is needed by Vanilla/JA2:S"""
-    sti_file = work_path / "InterFace" / "b_map.sti"
-    output_file = work_path / "InterFace" / "b_map.pcx"
+    interface_dir = resolve_case_insensitive_path(work_path, "Interface")
+    sti_filename = resolve_case_insensitive_path(work_path / interface_dir, "b_map.sti")
+    sti_file = work_path / interface_dir / sti_filename
+    output_file = work_path / interface_dir / "b_map.pcx"
 
     print("  * Converting InterFace/b_map.{sti => pcx}")
     with open(sti_file, 'rb') as file:
@@ -197,8 +214,27 @@ def replace_maps(work_path):
     """Work-around some known issues with certain sectors."""
     # We want the alternate map for G6, but no logic in Vanilla codebase to switch
     print("  * Replacing G6.dat with alternate")
-    (work_path / "Maps" / "g6_a.dat").replace(work_path / "Maps" / "g6.dat")        
+    maps_dir = resolve_case_insensitive_path(work_path, "maps")
+    map_filename = resolve_case_insensitive_path(work_path / maps_dir, "g6_a.dat")
+    (work_path / maps_dir / map_filename).replace(work_path / maps_dir / "g6.dat")
 
+def resolve_case_insensitive_path(directory, path):
+    parts = Path(path).parts
+    current = directory
+    path = ""
+    for p in parts:
+        listing = os.listdir(current)
+        found = False
+        for l in listing:
+            if p.lower() == l.lower():
+                current = os.path.join(current, l)
+                path = os.path.join(path, l)
+                found = True
+                break;
+        if not found:
+            current = os.path.join(current, p)
+            path = os.path.join(path, p)
+    return Path(path)
 
 if __name__ == '__main__':
     try:
