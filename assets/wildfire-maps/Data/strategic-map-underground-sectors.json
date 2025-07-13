@@ -225,7 +225,7 @@
         "sectorLevel": 3,
         "adjacentSectors": ["S"]
     },
-    /** Wildfire underground sector **/
+    // Wildfire underground sector
     // f8_b1.dat, Cambria Hospital basement
     {
         "sector": "F8",
