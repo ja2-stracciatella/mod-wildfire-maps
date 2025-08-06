@@ -11,15 +11,15 @@ jobs:
       fail-fast: false
       matrix:
         cfg:
-        - os: ubuntu-20.04
+        - os: ubuntu-latest
           python-version: 3.8
           target: linux
           target-arch: x64
-        - os: macos-10.15
+        - os: macos-latest
           python-version: 3.8
           target: mac
-          target-arch: x64
-        - os: windows-2019
+          target-arch: arm64
+        - os: windows-latest
           python-version: 3.8
           target: windows
           target-arch: x86
@@ -33,7 +33,7 @@ jobs:
         submodules: true
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.cfg.python-version }}
         architecture: ${{ matrix.cfg.target-arch }}
@@ -41,8 +41,10 @@ jobs:
     - name: Set up build deps
       shell: bash
       run: |
-        if [ "${{ matrix.cfg.target }} = "linux"   ]; then sudo apt-get -yq update && sudo apt-get -yq install upx; fi
-        if [ "${{ matrix.cfg.target }} = "windows" ]; then pip3 install pypiwin32 pefile; fi
+        pip3 install setuptools==58 wheel  ## needed by fs<2
+        if [ "${{ matrix.cfg.target }}" = "linux"   ]; then sudo apt-get -yq update && sudo apt-get -yq install upx; fi
+        if [ "${{ matrix.cfg.target }}" = "windows" ]; then pip3 install pypiwin32 pefile; fi
+
         pip3 install -r build/requirements.txt
         pip3 install pyinstaller
 
@@ -63,7 +65,7 @@ jobs:
         CI_GIT_TAG: ${{ steps.gitVersion.outputs.VERSION }}
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.cfg.target }}-${{ matrix.cfg.target-arch }}
         path: |
