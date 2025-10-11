@@ -147,7 +147,7 @@ def unpack_slf(src_path, work_path, slf_name):
     combined_fs = open_slf_for_copy(src_path, work_path, slf_name)
 
     print("  * Unpacking " + slf_name)
-    combined_fs.copydir('/slf', '/out', overwrite=True)
+    combined_fs.copydir('slf', 'out')
     combined_fs.close()
 
 
@@ -180,6 +180,7 @@ def find_slf_that_contains_resource(src_path, resource_path):
                 return slf_filename[:-4], r
     return None, None
 
+
 def open_slf_for_copy(src_path, dest_path, slf_name):
     """Opens an SLF files for reading and returns a MountFS"""
     slf_filename = resolve_case_insensitive_path(src_path, slf_name + ".slf")
@@ -191,10 +192,11 @@ def open_slf_for_copy(src_path, dest_path, slf_name):
     out_fs = OSFS(output_dir)
 
     combined_fs = MountFS()
-    combined_fs.mountdir('slf', slf_fs)
-    combined_fs.mountdir('out', out_fs)
+    combined_fs.mount('slf', slf_fs)
+    combined_fs.mount('out', out_fs)
 
     return combined_fs
+
 
 def convert_bmap(work_path):
     """Converts the bmap.sti in Wildfire to bmap.pcx which is needed by Vanilla/JA2:S"""
@@ -240,7 +242,7 @@ if __name__ == '__main__':
     try:
         main()
     except Exception as e:
-        print("\n" + Fore.RED + str(e) + Fore.RESET)
+        print("\n " + Fore.RED + repr(e) + Fore.RESET)
         if is_verbose:
             print(Style.DIM + Fore.BLUE + "\nError traceback:\n")
             traceback.print_exc()
