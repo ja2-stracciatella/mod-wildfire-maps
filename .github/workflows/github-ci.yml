@@ -28,8 +28,8 @@ jobs:
     runs-on: ${{ matrix.cfg.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
-      with: 
+      uses: actions/checkout@v4
+      with:
         submodules: true
 
     - name: Set up Python
@@ -41,11 +41,31 @@ jobs:
     - name: Set up build deps
       shell: bash
       run: |
-        pip3 install setuptools==58 wheel  ## needed by fs<2
-        if [ "${{ matrix.cfg.target }}" = "linux"   ]; then sudo apt-get -yq update && sudo apt-get -yq install upx; fi
-        if [ "${{ matrix.cfg.target }}" = "windows" ]; then pip3 install pypiwin32 pefile; fi
+        pip3 install --upgrade pip
 
-        pip3 install -r build/requirements.txt
+        if [ "${{ matrix.cfg.target }}" = "linux" ]; then
+          sudo apt-get -yq update && sudo apt-get -yq install upx zlib1g-dev libjpeg-dev libfreetype6-dev
+        fi
+
+        if [ "${{ matrix.cfg.target }}" = "mac" ]; then
+          brew install zlib libjpeg freetype
+          export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+          export CFLAGS="-I/opt/homebrew/opt/zlib/include"
+        fi
+
+        if [ "${{ matrix.cfg.target }}" = "windows" ]; then
+          vcpkg install zlib:x86-windows libjpeg-turbo:x86-windows
+          vcpkg integrate install
+          pip3 install pypiwin32 pefile
+          export VCPKG_ROOT="C:\vcpkg"
+          export VCPKG_DEFAULT_TRIPLET="x86-windows"
+          export INCLUDE="$VCPKG_ROOT\installed\x86-windows\include;$INCLUDE"
+          export LIB="$VCPKG_ROOT\installed\x86-windows\lib;$LIB"
+          export CFLAGS="-I$VCPKG_ROOT\installed\x86-windows\include"
+          export LDFLAGS="-L$VCPKG_ROOT\installed\x86-windows\lib"
+        fi
+
+        pip3 install --prefer-binary -r build/requirements.txt
         pip3 install pyinstaller
 
     - name: Determine package version
