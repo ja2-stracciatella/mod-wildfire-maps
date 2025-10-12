@@ -7,12 +7,52 @@ TAG=${CI_GIT_TAG-untagged}
 BASE_DIR="$(dirname "$BASH_SOURCE")/.."
 DIST_DIR="$BASE_DIR/dist/wildfire-maps"
 
-# Create executable binary
 pyinstaller $BASE_DIR/src/install_wildfire_maps.py \
     --hidden-import='pkg_resources.py2_warn' \
     --distpath $BASE_DIR/dist/ \
-    --paths $BASE_DIR/lib/ja2-open-toolset \
+    --hidden-import='PIL._imaging' \
+    --collect-all='PIL' \
     --onefile
+
+# # Create executable binary
+# if [ "$OS" = "windows" ]; then
+#     # Use spec file for Windows to handle PIL dependencies better
+#     pyinstaller $BASE_DIR/build/install_wildfire_maps.spec \
+#         --distpath $BASE_DIR/dist/ \
+#         --workpath $BASE_DIR/build/work \
+#         --specpath $BASE_DIR/build
+# else
+#     # Use command line for other platforms
+#     pyinstaller $BASE_DIR/src/install_wildfire_maps.py \
+#         --hidden-import='pkg_resources.py2_warn' \
+#         --hidden-import='PIL._imaging' \
+#         --hidden-import='PIL._imagingmorph' \
+#         --hidden-import='PIL._imagingft' \
+#         --hidden-import='PIL._imagingmath' \
+#         --hidden-import='PIL._imagingcms' \
+#         --collect-all='PIL' \
+#         --distpath $BASE_DIR/dist/ \
+#         --paths $BASE_DIR/lib/ja2-open-toolset \
+#         --onefile
+# fi
+
+# # Windows fallback: If the spec file approach fails, try with explicit DLL collection
+# if [ "$OS" = "windows" ] && [ ! -f "$BASE_DIR/dist/install_wildfire_maps.exe" ]; then
+#     echo "Spec file approach failed, trying fallback method..."
+#     pyinstaller $BASE_DIR/src/install_wildfire_maps.py \
+#         --hidden-import='pkg_resources.py2_warn' \
+#         --hidden-import='PIL._imaging' \
+#         --hidden-import='PIL._imagingmorph' \
+#         --hidden-import='PIL._imagingft' \
+#         --hidden-import='PIL._imagingmath' \
+#         --hidden-import='PIL._imagingcms' \
+#         --collect-all='PIL' \
+#         --collect-binaries='PIL' \
+#         --collect-data='PIL' \
+#         --distpath $BASE_DIR/dist/ \
+#         --paths $BASE_DIR/lib/ja2-open-toolset \
+#         --onefile
+# fi
 
 # Create dist package
 rm    -rf $DIST_DIR/

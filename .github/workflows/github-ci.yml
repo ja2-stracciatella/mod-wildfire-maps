@@ -63,9 +63,11 @@ jobs:
           export LIB="$VCPKG_ROOT\installed\x86-windows\lib;$LIB"
           export CFLAGS="-I$VCPKG_ROOT\installed\x86-windows\include"
           export LDFLAGS="-L$VCPKG_ROOT\installed\x86-windows\lib"
+          
+          pip3 uninstall -y Pillow  # make sure we build it fresh
         fi
 
-        pip3 install --prefer-binary -r build/requirements.txt
+        pip3 install -r build/requirements.txt
         pip3 install pyinstaller
 
     - name: Determine package version
