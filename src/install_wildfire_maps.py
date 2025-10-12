@@ -17,7 +17,7 @@ from fs.osfs import OSFS
 from pathlib import Path
 
 from ja2py.fileformats import SlfFS
-from ja2py.fileformats.Sti import load_16bit_sti
+from ja2py.fileformats.Sti import load_8bit_sti, load_16bit_sti
 
 DIRS_TO_UNPACK = [
     "Maps",
@@ -29,6 +29,8 @@ FILES_TO_EXTRACT = [
     "JA2set.dat",
     "MilitiaMaps.sti",
     "b_map.sti",
+    "OptionsScreenBackground.sti",
+
     "069.npc", # VINCE
     "080.npc", # STEVE
     "093.npc", # SPIKE
@@ -84,6 +86,7 @@ def main():
 
     convert_bmap(work_dir)
     replace_maps(work_dir)
+    extract_mainmenu_assets(src_dir, work_dir)
 
     print(Fore.GREEN + "Installation finished" + Style.RESET_ALL)
     if os.name == 'nt':
@@ -188,7 +191,7 @@ def open_slf_for_copy(src_path, dest_path, slf_name):
     slf_fs = SlfFS(str(slf_file))
 
     output_dir = dest_path / slf_name
-    output_dir.mkdir(exist_ok=True)
+    output_dir.mkdir(exist_ok=True, parents=True)
     out_fs = OSFS(output_dir)
 
     combined_fs = MountFS()
@@ -220,6 +223,29 @@ def replace_maps(work_path):
     map_filename = resolve_case_insensitive_path(work_path / maps_dir, "g6_a.dat")
     (work_path / maps_dir / map_filename).replace(work_path / maps_dir / "g6.dat")
 
+
+def extract_mainmenu_assets(src_path, work_path):
+    print("  * Extracting Main Menu graphics")
+    combined_fs = open_slf_for_copy(src_path, work_path, "LoadScreens")
+    combined_fs.copy('slf/mainmenubackground.sti', 'out/mainmenubackground.sti', overwrite=True)
+    combined_fs.copy('slf/ja2logo.sti', 'out/ja2logo.sti', overwrite=True)
+    combined_fs.close()
+
+    work_dir = resolve_case_insensitive_path(work_path, "LoadScreens")
+    resize_single_8bit_sti(work_path / work_dir / "mainmenubackground.sti", 640, 480)
+
+    work_dir = resolve_case_insensitive_path(work_path, "Interface")
+    resize_single_8bit_sti(work_path / work_dir / "OptionsScreenBackground.sti", 640, 480)
+
+
+def resize_single_8bit_sti(sti_path, width, height):
+    print("  * Resizing " + str(sti_path) + " to " + str(width) + "x" + str(height))
+    with open(sti_path, 'rb') as file:
+        sti = load_8bit_sti(file)
+    image = sti.images[0].image.resize((width, height))
+    image.save(sti_path, format='STCI', flags=['INDEXED', 'ETRLE'])
+
+
 def resolve_case_insensitive_path(directory, path):
     parts = Path(path).parts
     current = directory
@@ -237,6 +263,7 @@ def resolve_case_insensitive_path(directory, path):
             current = os.path.join(current, p)
             path = os.path.join(path, p)
     return Path(path)
+
 
 if __name__ == '__main__':
     try:
