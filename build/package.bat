@@ -2,8 +2,8 @@
 DEL *.spec
 pyinstaller ..\src\install_wildfire_maps.py ^
     --distpath ..\dist ^
+    --hidden-import=PIL ^
     --collect-all='PIL' ^
-    --additional-hooks-dir=. ^
     --onefile --console
 
 ECHO "Smoke-test the executable"
