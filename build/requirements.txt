@@ -1,4 +1,4 @@
 fs==2.4.16
 Pillow>=4.1.0
 colorama==0.4.3
-git+https://github.com/ja2-stracciatella/ja2-open-toolset.git@7a0b6778bfbba500c0d34942f0d7452e2cac7f0f 
+git+https://github.com/ja2-stracciatella/ja2-open-toolset.git@1.1.0
