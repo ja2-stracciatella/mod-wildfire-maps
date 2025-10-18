@@ -226,6 +226,8 @@ def replace_maps(work_path):
 
 def extract_mainmenu_assets(src_path, work_path):
     print("  * Extracting Main Menu graphics")
+
+    # There is another unused copy in Interface/, ignore that one
     combined_fs = open_slf_for_copy(src_path, work_path, "LoadScreens")
     combined_fs.copy('slf/mainmenubackground.sti', 'out/mainmenubackground.sti', overwrite=True)
     combined_fs.copy('slf/ja2logo.sti', 'out/ja2logo.sti', overwrite=True)
@@ -234,8 +236,26 @@ def extract_mainmenu_assets(src_path, work_path):
     work_dir = resolve_case_insensitive_path(work_path, "LoadScreens")
     resize_single_8bit_sti(work_path / work_dir / "mainmenubackground.sti", 640, 480)
 
+    work_dir = resolve_case_insensitive_path(work_path, "LoadScreens")
+    convert_ja2logo(work_path / work_dir / "ja2logo.sti")
+
     work_dir = resolve_case_insensitive_path(work_path, "Interface")
     resize_single_8bit_sti(work_path / work_dir / "OptionsScreenBackground.sti", 640, 480)
+
+
+def convert_ja2logo(sti_path):
+    with open(sti_path, 'rb') as file:
+        sti = load_8bit_sti(file)
+    image = sti.images[0].image.convert("P", colors=8)
+
+    # WF source img size: 1024 x 422 (170px left margin; 166px right margin)
+    # JA2 vanilla logo size: 254 x 207
+    resized_image = image.resize(size=(370, 210), box=(170, 0, 854, 380))
+
+    transparency_color = resized_image.getpixel((0, 0))
+    resized_image.info['transparency'] = transparency_color
+
+    resized_image.save(sti_path, format='STCI', flags=['INDEXED', 'ETRLE'])
 
 
 def resize_single_8bit_sti(sti_path, width, height):
